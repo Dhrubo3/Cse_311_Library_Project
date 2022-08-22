@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2022 at 04:40 AM
+-- Generation Time: Aug 22, 2022 at 09:20 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -44,7 +44,9 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id`, `first`, `last`, `username`, `password`, `email`, `contact`, `pic`) VALUES
 (1, 'Ocean', 'Master', 'Aquaman', 'DCCC3', 'dc@gmail.com', '01712798410', 'im3.jpg'),
-(2, 'Dhru', 'FAI', 'Haque', '7777', 'md@gmail.com', '123', 'im3.jpg');
+(2, 'Dhru', 'FAI', 'Haque', '7777', 'md@gmail.com', '123', 'im3.jpg'),
+(3, 'ccdc', 'cdcd', 'dcdc', 'cddc', 'dcdcd', '165165', ''),
+(4, 'sxsx', 'xxd', 'cdcd', 'cdcd', 'dcdcd', 'dcdcdc', 'D.jpg');
 
 -- --------------------------------------------------------
 
@@ -94,7 +96,10 @@ INSERT INTO `cmnts` (`id`, `comment`) VALUES
 (5, 'Dhrubo'),
 (6, 'dhrubo tui ekta chagol.'),
 (7, 'dhrubo tui ekta chagol.'),
-(8, 'this website sucks');
+(8, 'this website sucks'),
+(9, 'ha ha ha'),
+(10, 'ha ha ha'),
+(11, 'ha ha ha');
 
 -- --------------------------------------------------------
 
@@ -126,7 +131,9 @@ INSERT INTO `student` (`first`, `last`, `username`, `password`, `roll`, `email`,
 ('A.F.H', 'Dhrubo', 'Dhrubo', '1010', 2111026042, 'ahmed.dhrubo@northsouth.edu ', 1978870939, 'im3.jpg'),
 ('fahmida akand', 'nourin', 'Nourin', '212', 2031754, 'hdhferhf.@ gmail.com', 45567389, 'im3.jpg'),
 ('Faiza ', 'Benzir', 'Faiza24', 'faiza24', 2031740642, 'faiza.benzir24gmail.com', 65376763, 'im3.jpg'),
-('abc', 'abc', 'abc', 'abc', 0, 'abc', 0, 'im3.jpg');
+('abc', 'abc', 'abc', 'abc', 0, 'abc', 0, 'im3.jpg'),
+('Monowara', 'Meem', 'meem', '2002', 556, 'dfs@gmail.com', 5525, ''),
+('DEVIL', 'MONSTER', 'DEVIL', '1010', 5252, 'nfvd@gmail.com', 5285, '5.png');
 
 --
 -- Indexes for dumped tables
@@ -152,13 +159,13 @@ ALTER TABLE `cmnts`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `cmnts`
 --
 ALTER TABLE `cmnts`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
