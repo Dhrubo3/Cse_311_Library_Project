@@ -42,8 +42,8 @@
       
         <p style="color: white; padding-left: 15px;">
             <br><br>
-            <a style="color: white;" href="">Forgot password?</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            New to this website?<a style="color: white;" href="registration.html">Sign Up</a>
+            <a style="color: white; text-decoration: none;" href="update_password.php">Forgot password?</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            New to this website?<a style="color: white; text-decoration: none;" href="registration.html">Sign Up</a>
         </p>
     </form>
     </div>

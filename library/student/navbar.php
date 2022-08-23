@@ -32,13 +32,13 @@
             if(isset($_SESSION['login_user']))
             {?>
             <ul class="nav navbar-nav">
-              <a href="profile.php"></a>
+              <li><a href="profile.php"></a></li>
             </ul>
                 <ul class="nav navbar-nav navbar-right">
                   <li><a href="">
                     <div style="color: white">
                       <?php
-                       echo "<img class='img-circle profile_img' height= 30 width = 30 src='images/". $_SESSION['pic']."'>";
+                       echo "<img class='img-circle profile-img' height= 30 width = 30 src='images/".$_SESSION['pic']."'>";
                         echo " ".$_SESSION['login_user']; 
                       ?>
                     </div>

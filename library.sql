@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 22, 2022 at 09:20 AM
+-- Generation Time: Aug 23, 2022 at 04:02 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -43,7 +43,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `first`, `last`, `username`, `password`, `email`, `contact`, `pic`) VALUES
-(1, 'Ocean', 'Master', 'Aquaman', 'DCCC3', 'dc@gmail.com', '01712798410', 'im3.jpg'),
+(1, 'Ocean', 'Master', 'Aquaman', 'D3', 'dc@gmail.com', '01712798410', 'im3.jpg'),
 (2, 'Dhru', 'FAI', 'Haque', '7777', 'md@gmail.com', '123', 'im3.jpg'),
 (3, 'ccdc', 'cdcd', 'dcdc', 'cddc', 'dcdcd', '165165', ''),
 (4, 'sxsx', 'xxd', 'cdcd', 'cdcd', 'dcdcd', 'dcdcdc', 'D.jpg');
@@ -69,9 +69,9 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`bid`, `name`, `authors`, `edition`, `status`, `quantity`, `department`) VALUES
-(1, 'princi', 'olala', '7th', 'hehe, haha', 10, 'hum tumare kon hae'),
-(575, 'fegfgfg', 'fggfg,htgr', 'vg', 'rgg', 24, 'fbfgf'),
-(5555, 'gdgdfg', 'ghfgh', '78', 'available ', 45, 'ece');
+(5555, 'gdgdfg', 'ghfgh', '78', 'available ', 45, 'ece'),
+(20122, 'cdfd', 'cdc', '7tj', 'cdc', 0, 'dcdc'),
+(555, 'fvf', 'vfv', 'fffv', 'v', 88, 'fv');
 
 -- --------------------------------------------------------
 
@@ -100,6 +100,39 @@ INSERT INTO `cmnts` (`id`, `comment`) VALUES
 (9, 'ha ha ha'),
 (10, 'ha ha ha'),
 (11, 'ha ha ha');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `issue_book`
+--
+
+CREATE TABLE `issue_book` (
+  `username` varchar(100) NOT NULL,
+  `bid` int(100) NOT NULL,
+  `approve` varchar(100) NOT NULL,
+  `issue` varchar(100) NOT NULL,
+  `return` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `issue_book`
+--
+
+INSERT INTO `issue_book` (`username`, `bid`, `approve`, `issue`, `return`) VALUES
+('Dhrubo', 0, '', '', ''),
+('', 0, '', '', ''),
+('', 0, '', '', ''),
+('', 0, '', '', ''),
+('Nourin', 0, '', '', ''),
+('Nourin', 0, '', '', ''),
+('Nourin', 0, '', '', ''),
+('Nourin', 0, '', '', ''),
+('Nourin', 0, '', '', ''),
+('Nourin', 0, '', '', ''),
+('Nourin', 0, '', '', ''),
+('Dhrubo', 555, '', '', ''),
+('Dhrubo', 555, '', '', '');
 
 -- --------------------------------------------------------
 
