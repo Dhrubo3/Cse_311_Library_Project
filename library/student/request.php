@@ -101,6 +101,7 @@
 		<div class="h"><a href="add.php">Add Books</a></div>
 		<div class="h"><a href="request.php">Book Request</a></div>
 		<div class="h"><a href="issue_info.php">Issue Information</a></div>
+		<div class="h"><a href="expired.php">Expire List</a></div>
 	</div>
 
 	<div id="main">
@@ -126,11 +127,15 @@
 
 if(isset($_SESSION['login_user']))
 		{
-			$q=mysqli_query($db,"SELECT * from `issue_book` where `username`='$_SESSION[login_user]' ;");
+			$q=mysqli_query($db,"SELECT * from `issue_book` where `username`='$_SESSION[login_user]' and approve='' ;");
 
 			if(mysqli_num_rows($q)==0)
 			{
+				echo "<div style='color:black; text-align:center;'>";
+                echo "<br><br><br><b><h1>";
 				echo "There's no pending request...";
+				echo "</h1></b></br></br></br>";
+                echo "</div>";
 			}
 			else
 			{

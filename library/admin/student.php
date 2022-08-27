@@ -11,7 +11,7 @@
 	<style type="text/css">
 		.srch
 		{
-			padding-left: 1250px;
+			padding-left: 1050px;
 		}
 		body {
 			font-family: "Lato", sans-serif;
@@ -92,10 +92,11 @@
 			?>
 		</div>
 
-		<a href="profile.php">Profile</a>
-		<a href="books.php">Books</a>
-		<a href="#">Book Request</a>
-		<a href="#">Issue Information</a>
+	
+		<div class="h"><a href="books.php">Books</a></div>
+		<div class="h"><a href="request.php">Book Request</a></div>
+		<div class="h"><a href="issue_info.php">Issue Information</a></div>
+		<div class="h"><a href="expired.php">Expire List</a></div>
 	</div>
 
 	<div id="main">
@@ -117,7 +118,7 @@
 			}
 		</script>
 
-
+<div class="container">
 	<div class="srch">
 		<form class="navbar-form" method="post" name="form1">
 			
@@ -171,7 +172,7 @@
 			
 		else
 		{
-			$res=mysqli_query($db,"SELECT first,last,username,roll,email,contact FROM `student` ORDER BY `student`.`username` ASC;");
+			$res=mysqli_query($db,"SELECT `first`,`last`,username,roll,email,contact FROM `student` ORDER BY `student`.`username` ASC;");
 
 		echo "<table class='table table-bordered table-hover' >";
 			echo "<tr style='background-color: #6db6b9e6;'>";
@@ -201,5 +202,6 @@
 		}
 
 	?>
+</div>
 </body>
 </html>

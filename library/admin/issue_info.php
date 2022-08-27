@@ -93,6 +93,16 @@
 	opacity: 0.7;
 	color: white;
 }
+.scroll
+{
+    width: 100%;
+    height: 500px;
+    overflow: auto;
+}
+th,td
+{
+    width: 10%;
+}
  </style>
 </head>
 <body>
@@ -135,30 +145,18 @@
 				document.body.style.backgroundColor = "white";
 			}
 		</script>
-<div class="container">
-	<div class="srch">
-		<form method="post" action="" name="form1">
-           <input type="text" name="username" class="form-control" placeholder="Username" required=""><br>
-		   <input type="text" name="bid" class="form-control" placeholder="BID" required=""><br>
-		   <button class="btn btn-default" name="submit" type="submit">Submit</button>
-		</form>
-	</div>
-	<h3 style="text-align: center;">Request of Book</h3>
-<?php
-if(isset($_SESSION['login_user']))
-{
-	$sql = "SELECT student.username,roll,books.bid,`name`,authors,`edition`,`status` FROM student inner join `issue_book` ON student.username=issue_book.username inner join `books` ON issue_book.bid=books.bid WHERE issue_book.approve = ''";
-	$res = mysqli_query($db,$sql);
-	
-	if(mysqli_num_rows($res)==0)
-	{
-		echo "<br><br><br><b><h1>";
-		echo "There's no pending request...";
-		echo "</h1></b></br></br></br>";
-	}
-	else
-	{
-		echo "<table class='table table-bordered' >";
+        <div class="container">
+            <h3 style="text-align: center;">Information of Borrowed Books</h3>
+            <?php
+           $c=0;
+
+            if(isset($_SESSION['login_user']))
+            {
+            $sql = "SELECT student.username,roll,books.bid,`name`,authors,`edition`,issue,issue_book.return FROM student inner join `issue_book` ON student.username=issue_book.username inner join `books` ON issue_book.bid=books.bid WHERE issue_book.approve = 'Yes' ORDER BY `issue_book`.`return` ASC";
+           $res =  mysqli_query($db,$sql);
+
+           echo "<table class='table table-bordered'>";
+         
 			echo "<tr style='background-color: #6db6b9e6;'>";
 					
 				echo "<th>"; echo "Username";  echo "</th>";
@@ -167,12 +165,27 @@ if(isset($_SESSION['login_user']))
 				echo "<th>"; echo "Book Name";  echo "</th>";
 				echo "<th>"; echo "Author's Name";  echo "</th>";
 				echo "<th>"; echo "Edition";  echo "</th>";
-				echo "<th>"; echo "Status";  echo "</th>";
+				echo "<th>"; echo "Issue Date";  echo "</th>";
+                echo "<th>"; echo "Return Date";  echo "</th>";
 			
 			echo "</tr>";	
+            echo "</table>";
 
-			while($row=mysqli_fetch_assoc($res))
+            echo "<div class='scroll'>";
+            echo "<table class='table table-bordered' >";
+            while($row=mysqli_fetch_assoc($res))
 			{
+               $d=date("Y-m-d");
+               if($d > $row['return'])
+               {
+                $c=$c+1;
+				$var ='<p style="color:yellow;background-color:red;">Expired</p>';
+
+                mysqli_query($db,"UPDATE `issue_book` SET approve='$var' WHERE `return`='$row[return]' and approve='Yes' limit $c;");
+
+                echo $d."</br>";
+               }
+
 				echo "<tr>";
 				echo "<td>"; echo $row['username']; echo "</td>";
 				echo "<td>"; echo $row['roll']; echo "</td>";
@@ -180,33 +193,23 @@ if(isset($_SESSION['login_user']))
 				echo "<td>"; echo $row['name']; echo "</td>";
 				echo "<td>"; echo $row['authors']; echo "</td>";
 				echo "<td>"; echo $row['edition']; echo "</td>";
-				echo "<td>"; echo $row['status']; echo "</td>";
+				echo "<td>"; echo $row['issue']; echo "</td>";
+                echo "<td>"; echo $row['return']; echo "</td>";
 				
 			
 				echo "</tr>";
 			}
-		echo "</table>";
-			}
-	}
-	else
-	{
-		?>
-		<br>
-		<h3 style="text-align: center;">You need to login to see the request...</h3>
-		<?php
-	}
-	if(isset($_POST['submit']))
-	{
-		$_SESSION['name'] = $_POST['username'];
-		$_SESSION['bid'] = $_POST['bid'];
-
-?>
- <script type="text/javascript"> 
-window.location = "approve.php"
-</script>
-	<?php
-	}
-		?>	
-</div>
+            echo "</table>";
+            echo "</div>";
+            }
+            else
+            {
+                ?>
+                <h3 style="text-align:center;">Login to see information of Borrowed Books</h3>
+                <?php
+            }
+            ?>
+        </div>
+    </div>
 </body>
 </html>

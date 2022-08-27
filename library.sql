@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 23, 2022 at 04:02 PM
+-- Generation Time: Aug 27, 2022 at 07:41 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -43,10 +43,12 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `first`, `last`, `username`, `password`, `email`, `contact`, `pic`) VALUES
-(1, 'Ocean', 'Master', 'Aquaman', 'D3', 'dc@gmail.com', '01712798410', 'im3.jpg'),
-(2, 'Dhru', 'FAI', 'Haque', '7777', 'md@gmail.com', '123', 'im3.jpg'),
-(3, 'ccdc', 'cdcd', 'dcdc', 'cddc', 'dcdcd', '165165', ''),
-(4, 'sxsx', 'xxd', 'cdcd', 'cdcd', 'dcdcd', 'dcdcdc', 'D.jpg');
+(1, 'Ocean', 'Master', 'Aquaman', 'D33', 'dc@gmail.com', '01712798410', 'devil.png'),
+(2, 'Dhru', 'FAI', 'Haque', '7777', 'md@gmail.com', '123', '5.png'),
+(3, 'ccdc', 'cdcd', 'dcdc', 'cddc', 'dcdcd', '165165', '5.png'),
+(4, 'sxsx', 'xxd', 'cdcd', 'cdcd', 'dcdcd', 'dcdcdc', '5.png'),
+(5, 'AFH', 'DHRUBO', 'DEVIL', '123', 'dwdw@gmai.com', '456', '5.png'),
+(6, 'Ahmed', 'Haque ', 'Faizul', '3333', 'dnsdn@gmail.com', '546515', '212.png');
 
 -- --------------------------------------------------------
 
@@ -69,9 +71,9 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`bid`, `name`, `authors`, `edition`, `status`, `quantity`, `department`) VALUES
-(5555, 'gdgdfg', 'ghfgh', '78', 'available ', 45, 'ece'),
-(20122, 'cdfd', 'cdc', '7tj', 'cdc', 0, 'dcdc'),
-(555, 'fvf', 'vfv', 'fffv', 'v', 88, 'fv');
+(5555, 'gdgdfg', 'ghfgh', '78', 'available ', 44, 'ece'),
+(20122, 'cdfd', 'cdc', '7tj', 'cdc', -1, 'dcdc'),
+(555, 'fvf', 'vfv', 'fffv', 'v', 87, 'fv');
 
 -- --------------------------------------------------------
 
@@ -81,25 +83,28 @@ INSERT INTO `books` (`bid`, `name`, `authors`, `edition`, `status`, `quantity`, 
 
 CREATE TABLE `cmnts` (
   `id` int(100) NOT NULL,
-  `comment` varchar(300) NOT NULL
+  `comment` varchar(300) NOT NULL,
+  `username` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `cmnts`
 --
 
-INSERT INTO `cmnts` (`id`, `comment`) VALUES
-(1, 'hi'),
-(2, 'Allah'),
-(3, 'Allah'),
-(4, 'Allah'),
-(5, 'Dhrubo'),
-(6, 'dhrubo tui ekta chagol.'),
-(7, 'dhrubo tui ekta chagol.'),
-(8, 'this website sucks'),
-(9, 'ha ha ha'),
-(10, 'ha ha ha'),
-(11, 'ha ha ha');
+INSERT INTO `cmnts` (`id`, `comment`, `username`) VALUES
+(1, 'hi', ''),
+(2, 'Allah', ''),
+(3, 'Allah', ''),
+(4, 'Allah', ''),
+(5, 'Dhrubo', ''),
+(6, 'dhrubo tui ekta chagol.', ''),
+(7, 'dhrubo tui ekta chagol.', ''),
+(8, 'this website sucks', ''),
+(9, 'ha ha ha', ''),
+(10, 'ha ha ha', ''),
+(11, 'ha ha ha', ''),
+(12, 'Hey', 'Admin'),
+(13, 'Hey', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -131,8 +136,10 @@ INSERT INTO `issue_book` (`username`, `bid`, `approve`, `issue`, `return`) VALUE
 ('Nourin', 0, '', '', ''),
 ('Nourin', 0, '', '', ''),
 ('Nourin', 0, '', '', ''),
-('Dhrubo', 555, '', '', ''),
-('Dhrubo', 555, '', '', '');
+('Dhrubo', 555, '<p style=\"color:yellow;background-color:green;\">Returned</p>', '2022-04-28', '2022-06-12'),
+('Dhrubo', 555, '<p style=\"color:yellow;background-color:green;\">Returned</p>', '2022-04-28', '2022-06-12'),
+('Nourin', 20122, 'Yes', '22-08-25', '22-08-29'),
+('meem', 5555, 'Yes', '2022-01-30', '2022-02-01');
 
 -- --------------------------------------------------------
 
@@ -156,16 +163,16 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`first`, `last`, `username`, `password`, `roll`, `email`, `contact`, `pic`) VALUES
-('a', 'b', 'c', 'ddd', 25, 'abcd@gmail.com', 23145, 'im3.jpg'),
-('ss', 'sd', 's', '222', 45545, 'dwdd@gmail.com', 12, 'im3.jpg'),
-('ss', 'sd', 's', '222', 45545, 'dwdd@gmail.com', 12, 'im3.jpg'),
-('c', 'cd', 'ddd', 'cfrf', 2515, 'fhh@gmail.com', 548545, 'im3.jpg'),
-('dds', 'fff', 'fsfffefe', 'fefege', 2514, 'ddj@gmail.com', 5454545, 'im3.jpg'),
-('A.F.H', 'Dhrubo', 'Dhrubo', '1010', 2111026042, 'ahmed.dhrubo@northsouth.edu ', 1978870939, 'im3.jpg'),
-('fahmida akand', 'nourin', 'Nourin', '212', 2031754, 'hdhferhf.@ gmail.com', 45567389, 'im3.jpg'),
-('Faiza ', 'Benzir', 'Faiza24', 'faiza24', 2031740642, 'faiza.benzir24gmail.com', 65376763, 'im3.jpg'),
-('abc', 'abc', 'abc', 'abc', 0, 'abc', 0, 'im3.jpg'),
-('Monowara', 'Meem', 'meem', '2002', 556, 'dfs@gmail.com', 5525, ''),
+('a', 'b', 'c', 'ddd', 25, 'abcd@gmail.com', 23145, '5.png'),
+('ss', 'sd', 's', '222', 45545, 'dwdd@gmail.com', 12, '5.png'),
+('ss', 'sd', 's', '222', 45545, 'dwdd@gmail.com', 12, '5.png'),
+('c', 'cd', 'ddd', 'cfrf', 2515, 'fhh@gmail.com', 548545, '5.png'),
+('dds', 'fff', 'fsfffefe', 'fefege', 2514, 'ddj@gmail.com', 5454545, '5.png'),
+('A.F.H', 'Dhrubo', 'Dhrubo', '1010', 2111026042, 'ahmed.dhrubo@northsouth.edu ', 1978870939, 'received_145432607756363.jpeg'),
+('fahmida akand', 'nourin', 'Nourin', '212', 2031754, 'hdhferhf.@ gmail.com', 45567389, '5.png'),
+('Faiza ', 'Benzir', 'Faiza24', 'faiza24', 2031740642, 'faiza.benzir24gmail.com', 65376763, '5.png'),
+('abc', 'abc', 'abc', 'abc', 0, 'abc', 0, '5.png'),
+('Monowara', 'Meem', 'meem', '2002', 556, 'dfs@gmail.com', 5525, '5.png'),
 ('DEVIL', 'MONSTER', 'DEVIL', '1010', 5252, 'nfvd@gmail.com', 5285, '5.png');
 
 --
@@ -192,13 +199,13 @@ ALTER TABLE `cmnts`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `cmnts`
 --
 ALTER TABLE `cmnts`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

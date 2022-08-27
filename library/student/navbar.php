@@ -61,6 +61,25 @@
 
       </div>
     </nav>
+    <?php
+         if(isset($_SESSION['login_user']))
+         {
+          $day=0;
+          $exp = '<p style="color:yellow;background-color:red;">Expired</p>';
+        $res=  mysqli_query($db,"SELECT `return` FROM `issue_book` WHERE username = '$_SESSION[login_user]' and approve='$exp';");
+        while($row = mysqli_fetch_assoc($res))
+        {
+          $d = strtotime($row['return']);
+          $c= strtotime(date("Y-m-d"));
+          $diff = ($c-$d);
 
+          if($diff >=0)
+          {
+        $day =$day+ floor($diff/(60*60*24));
+        $_SESSION['day'] =$day;
+          }
+        }   echo $day;
+         }
+    ?>
 </body>
 </html>

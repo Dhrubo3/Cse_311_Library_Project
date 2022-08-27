@@ -68,7 +68,7 @@
         }
         if($count==0)
         {
-          mysqli_query($db,"INSERT INTO `admin` VALUES('' , '$_POST[first]', '$_POST[last]', '$_POST[username]', '$_POST[password]', '$_POST[email]', '$_POST[contact]','5.png');");
+          mysqli_query($db,"INSERT INTO `admin` VALUES('' , '$_POST[first]', '$_POST[last]', '$_POST[username]', '$_POST[password]', '$_POST[email]', '$_POST[contact]','212.png');");
         ?>
           <script type="text/javascript">
            alert("Registration successful...");

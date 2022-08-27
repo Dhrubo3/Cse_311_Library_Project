@@ -43,7 +43,7 @@
         <p style="color: white; padding-left: 15px;">
             <br><br>
             <a style="color: white;" href="update_password.php">Forgot password?</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            New to this website?<a style="color: white;" href="registration.html">Sign Up</a>
+            New to this website?<a style="color: white;" href="registration.php">Sign Up</a>
         </p>
     </form>
     </div>
@@ -58,7 +58,7 @@
            $res = mysqli_query($db,"SELECT * FROM `admin` WHERE username = '$_POST[username]' && password = '$_POST[password]'; ");
 
 
-        $row = mysqli_fetch_row($res);
+        $row = mysqli_fetch_assoc($res);
 
         $count = mysqli_num_rows($res);
         
