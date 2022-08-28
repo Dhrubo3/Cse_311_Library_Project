@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 27, 2022 at 07:41 PM
+-- Generation Time: Aug 28, 2022 at 09:33 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -73,7 +73,7 @@ CREATE TABLE `books` (
 INSERT INTO `books` (`bid`, `name`, `authors`, `edition`, `status`, `quantity`, `department`) VALUES
 (5555, 'gdgdfg', 'ghfgh', '78', 'available ', 44, 'ece'),
 (20122, 'cdfd', 'cdc', '7tj', 'cdc', -1, 'dcdc'),
-(555, 'fvf', 'vfv', 'fffv', 'v', 87, 'fv');
+(555, 'fvf', 'vfv', 'fffv', 'v', 88, 'fv');
 
 -- --------------------------------------------------------
 
@@ -105,6 +105,28 @@ INSERT INTO `cmnts` (`id`, `comment`, `username`) VALUES
 (11, 'ha ha ha', ''),
 (12, 'Hey', 'Admin'),
 (13, 'Hey', 'Admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fine`
+--
+
+CREATE TABLE `fine` (
+  `username` varchar(100) NOT NULL,
+  `bid` int(100) NOT NULL,
+  `returned` varchar(100) NOT NULL,
+  `day` int(50) NOT NULL,
+  `fine` double NOT NULL,
+  `status` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `fine`
+--
+
+INSERT INTO `fine` (`username`, `bid`, `returned`, `day`, `fine`, `status`) VALUES
+('Dhrubo', 555, '2022-08-28', 77, 7.7, 'not paid');
 
 -- --------------------------------------------------------
 

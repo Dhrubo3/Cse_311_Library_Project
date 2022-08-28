@@ -153,15 +153,19 @@ include "navbar.php";
             if (isset($_SESSION['login_user'])) {
             ?>
             <div style="float: left; padding: 25px;">
-            <form method="post" action="">
-            <button name="submit2" type="submit" class="btn btn-default" style="background-color: #06861a; color:yellow">Returned</button> &nbsp;
-            <button name="submit3" type="submit"  class="btn btn-default" style="background-color: red; color:yellow">Expired</button>
-            </form>
-            </div>
                <div style="float:right;padding-top:20px;">
+               <?php
+               $var = 0;
+               $result = mysqli_query($db,"SELECT * FROM `fine` WHERE username='$_SESSION[login_user]' and `status`='not paid';");
+
+               while ($r = mysqli_fetch_assoc($result)) {
+                 $var=$var+$r['FINE'];
+               }
+               $var2  = $var + $_SESSION['fine'];
+               ?>
                <h2>Your fine is:
                 <?php
-                echo "$ ".$day;
+                echo "$ ".($_SESSION['day']*0.1);
                 ?>
                </h2>
 

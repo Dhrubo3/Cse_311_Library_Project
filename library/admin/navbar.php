@@ -36,6 +36,7 @@ session_start();
         <ul class="nav navbar-nav">
           <li><a href="profile.php">PROFILE</a></li>
           <li><a href="student.php">STUDENT-INFORMATION</a></li>
+          <li><a href="fine.php">Fines</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">

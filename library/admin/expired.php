@@ -169,6 +169,24 @@ include "navbar.php";
 
         if(isset($_POST['submit']))
         {
+         $res = mysqli_query($db,"SELECT * FROM `issue_book` WHERE username='$_POST[username]' and bid='$_POST[bid]';");
+         while($row = mysqli_fetch_assoc($res))
+         {
+            $d = strtotime($row['return']);
+            $c= strtotime(date("Y-m-d"));
+            $diff = ($c-$d);
+  
+            if($diff >=0)
+            {
+          $day =floor($diff/(60*60*24));
+          $fine = $day*0.1;
+         }
+        }
+         $x = date("Y-m-d");
+       
+         mysqli_query($db,"INSERT INTO `fine` VALUES('$_POST[username]','$_POST[bid]','$x','$day','$fine','not paid') ; ");
+
+
             $var1 = '<p style="color:yellow;background-color:green;">Returned</p>';
             mysqli_query($db,"UPDATE `issue_book` SET approve='$var1' WHERE username='$_POST[username]' and bid='$_POST[bid]'");
 
@@ -176,12 +194,10 @@ include "navbar.php";
         }
             }
             ?>
-         <!--   <h3 style="text-align: center;">Date Expired List</h3> -->
+        
             <?php
             $c = 0;
 
-            /*if (isset($_SESSION['login_user'])) {
-                $var = '<p style="color:yellow;background-color:red;">Expired</p>'; */
             $ret = '<p style="color:yellow;background-color:green;">Returned</p>';
             $exp = '<p style="color:yellow;background-color:red;">Expired</p>';
             
@@ -273,11 +289,7 @@ include "navbar.php";
                 }
                 echo "</table>";
                 echo "</div>";
-             /*} else {
-            ?>
-                <h3 style="text-align:center;">Login to see information of Borrowed Books</h3>
-            <?php
-            }*/
+         
             ?>
         </div>
     </div>

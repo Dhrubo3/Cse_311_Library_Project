@@ -77,8 +77,10 @@
           {
         $day =$day+ floor($diff/(60*60*24));
         $_SESSION['day'] =$day;
+
           }
-        }   echo $day;
+        }  
+        $_SESSION['fine'] = $day*0.1;
          }
     ?>
 </body>
