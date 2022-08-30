@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2022 at 09:33 PM
+-- Generation Time: Aug 30, 2022 at 05:09 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -166,6 +166,32 @@ INSERT INTO `issue_book` (`username`, `bid`, `approve`, `issue`, `return`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `message`
+--
+
+CREATE TABLE `message` (
+  `id` int(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `message` varchar(5000) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `sender` varchar(5000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `message`
+--
+
+INSERT INTO `message` (`id`, `username`, `message`, `status`, `sender`) VALUES
+(1, 'Dhrubo', 'yoo', 'no', 'student'),
+(2, 'Dhrubo', 'yoo', 'no', 'student'),
+(3, 'Dhrubo', 'lalalalala', 'no', 'student'),
+(4, 'Dhrubo', 'lalalalala', 'no', 'student'),
+(5, 'Dhrubo', 'yoooooo', 'yes', 'Admin'),
+(6, 'Dhrubo', 'who are you', 'yes', 'admin');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `student`
 --
 
@@ -214,6 +240,12 @@ ALTER TABLE `cmnts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `message`
+--
+ALTER TABLE `message`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -228,6 +260,12 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `cmnts`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `message`
+--
+ALTER TABLE `message`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

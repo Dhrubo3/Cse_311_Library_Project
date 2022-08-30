@@ -17,6 +17,13 @@
     <title></title>
 </head>
 <body>
+
+<?php
+    $r=mysqli_query($db,"SELECT COUNT(`status`) as total FROM `message` WHERE `status` = 'no' and username='$_SESSION[login_user]' and sender='admin' ;");
+    $c = mysqli_fetch_assoc($r);
+?>
+
+
 <nav class="navbar navbar-inverse">
         <div class="container-fluid">
         <div class="navbar-header">
@@ -33,8 +40,10 @@
             {?>
             <ul class="nav navbar-nav">
               <li><a href="profile.php"></a></li>
+              <li><a href="fine.php">Fines</a></li>
             </ul>
                 <ul class="nav navbar-nav navbar-right">
+                  <li><a href="message.php"><span class="glyphicon glyphicon-envelope"></span><span class="badge bg-green"><?php echo $c['total']; ?></span></a></li>
                   <li><a href="">
                     <div style="color: white">
                       <?php

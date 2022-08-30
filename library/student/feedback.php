@@ -1,6 +1,6 @@
 <?php
-  include "navbar.php";
   include "connection.php";
+  include "navbar.php";
 ?>
 
 <!DOCTYPE html>

@@ -84,7 +84,7 @@ include "navbar.php";
             color: white;
             width: 300px;
             height: 50px;
-            background-color: skyblue;
+            background-color: red;
         }
 
         .container {
