@@ -16,10 +16,10 @@ include "navbar.php";
     <script src="https://maxcdn.bootstrap.com/bootstrap/3.3.1/js/3.3.1/js/bootstrap.min.js"></script>
     
     <title>Message</title>
+</head>
     <style type="text/css">
          body {
-            background-image: url("images/22.jpg");
-           
+            background-image: url("images/22.jpg");   
             transition: background-color .5s;
         }
         .wrapper{
@@ -57,7 +57,7 @@ include "navbar.php";
             border-radius: 10px;
             order: -1;
         }
-        .Admin .chatbox
+        .admin .chatbox
         {
             height: 50px;
             width: 400px;
@@ -68,7 +68,7 @@ include "navbar.php";
             
         }
         </style>
-</head>
+
 <body>
 
 <?php

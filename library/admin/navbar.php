@@ -17,8 +17,11 @@ session_start();
 
   <title></title>
 </head>
-
 <body>
+<?php
+    $r=mysqli_query($db,"SELECT COUNT(`status`) as total FROM `message` WHERE `status` = 'no' and sender='student' ;");
+    $c = mysqli_fetch_assoc($r);
+?>
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -40,6 +43,7 @@ session_start();
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
+        <li><a href="message.php"><span class="glyphicon glyphicon-envelope"></span><span class="badge bg-green"><?php echo $c['total']; ?></span></a></li>
           <li><a href="profile.php">
               <div style="color: white">
                 <?php

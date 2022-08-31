@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2022 at 05:09 PM
+-- Generation Time: Aug 31, 2022 at 10:27 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -182,12 +182,15 @@ CREATE TABLE `message` (
 --
 
 INSERT INTO `message` (`id`, `username`, `message`, `status`, `sender`) VALUES
-(1, 'Dhrubo', 'yoo', 'no', 'student'),
-(2, 'Dhrubo', 'yoo', 'no', 'student'),
-(3, 'Dhrubo', 'lalalalala', 'no', 'student'),
-(4, 'Dhrubo', 'lalalalala', 'no', 'student'),
+(1, 'Dhrubo', 'yoo', 'yes', 'student'),
+(2, 'Dhrubo', 'yoo', 'yes', 'student'),
+(3, 'Dhrubo', 'lalalalala', 'yes', 'student'),
+(4, 'Dhrubo', 'lalalalala', 'yes', 'student'),
 (5, 'Dhrubo', 'yoooooo', 'yes', 'Admin'),
-(6, 'Dhrubo', 'who are you', 'yes', 'admin');
+(6, 'Dhrubo', 'who are you', 'yes', 'admin'),
+(7, 'Dhrubo', 'yoo', 'no', 'admin'),
+(8, 'Dhrubo', 'hii', 'no', 'admin'),
+(9, 'Dhrubo', 'hhhh', 'no', 'admin');
 
 -- --------------------------------------------------------
 
@@ -265,7 +268,7 @@ ALTER TABLE `cmnts`
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
